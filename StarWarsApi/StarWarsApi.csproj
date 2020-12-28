@@ -20,5 +20,6 @@
     <Folder Include="DataAccess\starwarsdata\" />
     <Folder Include="DataAccess\Entities\" />
     <Folder Include="Constants\" />
+    <Folder Include="Models\" />
   </ItemGroup>
 </Project>

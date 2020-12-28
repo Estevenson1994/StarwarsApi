@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StarWarsApi.DataAccess;
-using StarWarsApi.DataAccess.Entities;
+using StarWarsApi.Models;
 
 namespace StarWarsApi.Controllers
 {
@@ -30,11 +30,20 @@ namespace StarWarsApi.Controllers
         #region StarWarsController
 
         [HttpGet("Films")]
-        public async Task<ActionResult<List<Film>>> GetFilms()
+        public async Task<ActionResult<List<FilmModel>>> GetFilms()
         {
             var films = await _context.Films
                 .Include(f => f.Characters)
                 .ThenInclude(c => c.Character)
+                .Select(f => new FilmModel
+                {
+                    Title = f.Title,
+                    Characters = f.Characters.Select(c =>
+                        new CharacterModel
+                        {
+                            Name = c.Character.Name
+                        }).ToList()
+                })
                 .ToListAsync();
 
             return Ok(films);
