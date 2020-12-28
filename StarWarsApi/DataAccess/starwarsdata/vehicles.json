@@ -1,0 +1,776 @@
+[
+  {
+    "cargoCapacity": 50000,
+    "consumables": "2 months",
+    "costInCredits": 150000,
+    "created": "2014-12-10T15:36:25.724Z",
+    "crew": 46,
+    "edited": "2014-12-20T21:30:21.661Z",
+    "length": null,
+    "manufacturer": "Corellia Mining Corporation",
+    "model": "Digger Crawler",
+    "name": "Sand Crawler",
+    "passengers": 30,
+    "filmIds": [
+      1,
+      5
+    ],
+    "pilotIds": [],
+    "id": 4,
+    "vehicleClass": "wheeled"
+  },
+  {
+    "cargoCapacity": 50,
+    "consumables": "0",
+    "costInCredits": 14500,
+    "created": "2014-12-10T16:01:52.434Z",
+    "crew": 1,
+    "edited": "2014-12-20T21:30:21.665Z",
+    "length": null,
+    "manufacturer": "Incom Corporation",
+    "model": "T-16 skyhopper",
+    "name": "T-16 skyhopper",
+    "passengers": 1,
+    "filmIds": [
+      1
+    ],
+    "pilotIds": [],
+    "id": 6,
+    "vehicleClass": "repulsorcraft"
+  },
+  {
+    "cargoCapacity": 5,
+    "consumables": "unknown",
+    "costInCredits": 10550,
+    "created": "2014-12-10T16:13:52.586Z",
+    "crew": 1,
+    "edited": "2014-12-20T21:30:21.668Z",
+    "length": null,
+    "manufacturer": "SoroSuub Corporation",
+    "model": "X-34 landspeeder",
+    "name": "X-34 landspeeder",
+    "passengers": 1,
+    "filmIds": [
+      1
+    ],
+    "pilotIds": [],
+    "id": 7,
+    "vehicleClass": "repulsorcraft"
+  },
+  {
+    "cargoCapacity": 65,
+    "consumables": "2 days",
+    "costInCredits": null,
+    "created": "2014-12-10T16:33:52.86Z",
+    "crew": 1,
+    "edited": "2014-12-20T21:30:21.67Z",
+    "length": null,
+    "manufacturer": "Sienar Fleet Systems",
+    "model": "Twin Ion Engine/Ln Starfighter",
+    "name": "TIE/LN starfighter",
+    "passengers": 0,
+    "filmIds": [
+      1,
+      2,
+      3
+    ],
+    "pilotIds": [],
+    "id": 8,
+    "vehicleClass": "starfighter"
+  },
+  {
+    "cargoCapacity": 10,
+    "consumables": "none",
+    "costInCredits": null,
+    "created": "2014-12-15T12:22:12Z",
+    "crew": 2,
+    "edited": "2014-12-20T21:30:21.672Z",
+    "length": null,
+    "manufacturer": "Incom corporation",
+    "model": "t-47 airspeeder",
+    "name": "Snowspeeder",
+    "passengers": 0,
+    "filmIds": [
+      2
+    ],
+    "pilotIds": [
+      1,
+      18
+    ],
+    "id": 14,
+    "vehicleClass": "airspeeder"
+  },
+  {
+    "cargoCapacity": null,
+    "consumables": "2 days",
+    "costInCredits": null,
+    "created": "2014-12-15T12:33:15.838Z",
+    "crew": 1,
+    "edited": "2014-12-20T21:30:21.675Z",
+    "length": null,
+    "manufacturer": "Sienar Fleet Systems",
+    "model": "TIE/sa bomber",
+    "name": "TIE bomber",
+    "passengers": 0,
+    "filmIds": [
+      2,
+      3
+    ],
+    "pilotIds": [],
+    "id": 16,
+    "vehicleClass": "space/planetary bomber"
+  },
+  {
+    "cargoCapacity": 1000,
+    "consumables": "unknown",
+    "costInCredits": null,
+    "created": "2014-12-15T12:38:25.937Z",
+    "crew": 5,
+    "edited": "2014-12-20T21:30:21.677Z",
+    "length": 20,
+    "manufacturer": "Kuat Drive Yards, Imperial Department of Military Research",
+    "model": "All Terrain Armored Transport",
+    "name": "AT-AT",
+    "passengers": 40,
+    "filmIds": [
+      2,
+      3
+    ],
+    "pilotIds": [],
+    "id": 18,
+    "vehicleClass": "assault walker"
+  },
+  {
+    "cargoCapacity": 200,
+    "consumables": "none",
+    "costInCredits": null,
+    "created": "2014-12-15T12:46:42.384Z",
+    "crew": 2,
+    "edited": "2014-12-20T21:30:21.679Z",
+    "length": 2,
+    "manufacturer": "Kuat Drive Yards, Imperial Department of Military Research",
+    "model": "All Terrain Scout Transport",
+    "name": "AT-ST",
+    "passengers": 0,
+    "filmIds": [
+      2,
+      3
+    ],
+    "pilotIds": [
+      13
+    ],
+    "id": 19,
+    "vehicleClass": "walker"
+  },
+  {
+    "cargoCapacity": 10,
+    "consumables": "1 day",
+    "costInCredits": 75000,
+    "created": "2014-12-15T12:58:50.53Z",
+    "crew": 2,
+    "edited": "2014-12-20T21:30:21.681Z",
+    "length": 7,
+    "manufacturer": "Bespin Motors",
+    "model": "Storm IV Twin-Pod",
+    "name": "Storm IV Twin-Pod cloud car",
+    "passengers": 0,
+    "filmIds": [
+      2
+    ],
+    "pilotIds": [],
+    "id": 20,
+    "vehicleClass": "repulsorcraft"
+  },
+  {
+    "cargoCapacity": 2000000,
+    "consumables": "Live food tanks",
+    "costInCredits": 285000,
+    "created": "2014-12-18T10:44:14.217Z",
+    "crew": 26,
+    "edited": "2014-12-20T21:30:21.684Z",
+    "length": 30,
+    "manufacturer": "Ubrikkian Industries Custom Vehicle Division",
+    "model": "Modified Luxury Sail Barge",
+    "name": "Sail barge",
+    "passengers": 500,
+    "filmIds": [
+      3
+    ],
+    "pilotIds": [],
+    "id": 24,
+    "vehicleClass": "sail barge"
+  },
+  {
+    "cargoCapacity": 135000,
+    "consumables": "1 day",
+    "costInCredits": 8000,
+    "created": "2014-12-18T10:48:03.208Z",
+    "crew": 5,
+    "edited": "2014-12-20T21:30:21.688Z",
+    "length": null,
+    "manufacturer": "Ubrikkian Industries",
+    "model": "Bantha-II",
+    "name": "Bantha-II cargo skiff",
+    "passengers": 16,
+    "filmIds": [
+      3
+    ],
+    "pilotIds": [],
+    "id": 25,
+    "vehicleClass": "repulsorcraft cargo skiff"
+  },
+  {
+    "cargoCapacity": 75,
+    "consumables": "2 days",
+    "costInCredits": null,
+    "created": "2014-12-18T10:50:28.225Z",
+    "crew": 1,
+    "edited": "2014-12-20T21:30:21.691Z",
+    "length": null,
+    "manufacturer": "Sienar Fleet Systems",
+    "model": "Twin Ion Engine Interceptor",
+    "name": "TIE/IN interceptor",
+    "passengers": 0,
+    "filmIds": [
+      3
+    ],
+    "pilotIds": [],
+    "id": 26,
+    "vehicleClass": "starfighter"
+  },
+  {
+    "cargoCapacity": 4,
+    "consumables": "1 day",
+    "costInCredits": 8000,
+    "created": "2014-12-18T11:20:04.625Z",
+    "crew": 1,
+    "edited": "2014-12-20T21:30:21.693Z",
+    "length": 3,
+    "manufacturer": "Aratech Repulsor Company",
+    "model": "74-Z speeder bike",
+    "name": "Imperial Speeder Bike",
+    "passengers": 1,
+    "filmIds": [
+      3
+    ],
+    "pilotIds": [
+      1,
+      5
+    ],
+    "id": 30,
+    "vehicleClass": "speeder"
+  },
+  {
+    "cargoCapacity": 0,
+    "consumables": "none",
+    "costInCredits": null,
+    "created": "2014-12-19T17:09:53.584Z",
+    "crew": 0,
+    "edited": "2014-12-20T21:30:21.697Z",
+    "length": null,
+    "manufacturer": "Haor Chall Engineering, Baktoid Armor Workshop",
+    "model": "Vulture-class droid starfighter",
+    "name": "Vulture Droid",
+    "passengers": 0,
+    "filmIds": [
+      4,
+      6
+    ],
+    "pilotIds": [],
+    "id": 33,
+    "vehicleClass": "starfighter"
+  },
+  {
+    "cargoCapacity": 12000,
+    "consumables": "unknown",
+    "costInCredits": 138000,
+    "created": "2014-12-19T17:12:04.4Z",
+    "crew": 4,
+    "edited": "2014-12-20T21:30:21.7Z",
+    "length": 31,
+    "manufacturer": "Baktoid Armor Workshop",
+    "model": "Multi-Troop Transport",
+    "name": "Multi-Troop Transport",
+    "passengers": 112,
+    "filmIds": [
+      4
+    ],
+    "pilotIds": [],
+    "id": 34,
+    "vehicleClass": "repulsorcraft"
+  },
+  {
+    "cargoCapacity": null,
+    "consumables": "unknown",
+    "costInCredits": null,
+    "created": "2014-12-19T17:13:29.799Z",
+    "crew": 4,
+    "edited": "2014-12-20T21:30:21.703Z",
+    "length": null,
+    "manufacturer": "Baktoid Armor Workshop",
+    "model": "Armoured Assault Tank",
+    "name": "Armored Assault Tank",
+    "passengers": 6,
+    "filmIds": [
+      4
+    ],
+    "pilotIds": [],
+    "id": 35,
+    "vehicleClass": "repulsorcraft"
+  },
+  {
+    "cargoCapacity": null,
+    "consumables": "none",
+    "costInCredits": 2500,
+    "created": "2014-12-19T17:15:09.511Z",
+    "crew": 1,
+    "edited": "2014-12-20T21:30:21.705Z",
+    "length": 2,
+    "manufacturer": "Baktoid Armor Workshop",
+    "model": "Single Trooper Aerial Platform",
+    "name": "Single Trooper Aerial Platform",
+    "passengers": 0,
+    "filmIds": [
+      4
+    ],
+    "pilotIds": [],
+    "id": 36,
+    "vehicleClass": "repulsorcraft"
+  },
+  {
+    "cargoCapacity": 1800000,
+    "consumables": "1 day",
+    "costInCredits": 200000,
+    "created": "2014-12-19T17:20:36.373Z",
+    "crew": 140,
+    "edited": "2014-12-20T21:30:21.707Z",
+    "length": 210,
+    "manufacturer": "Haor Chall Engineering",
+    "model": "C-9979 landing craft",
+    "name": "C-9979 landing craft",
+    "passengers": 284,
+    "filmIds": [
+      4
+    ],
+    "pilotIds": [],
+    "id": 37,
+    "vehicleClass": "landing craft"
+  },
+  {
+    "cargoCapacity": 1600,
+    "consumables": "unknown",
+    "costInCredits": null,
+    "created": "2014-12-19T17:37:37.924Z",
+    "crew": 1,
+    "edited": "2014-12-20T21:30:21.71Z",
+    "length": 15,
+    "manufacturer": "Otoh Gunga Bongameken Cooperative",
+    "model": "Tribubble bongo",
+    "name": "Tribubble bongo",
+    "passengers": 2,
+    "filmIds": [
+      4
+    ],
+    "pilotIds": [
+      10,
+      32
+    ],
+    "id": 38,
+    "vehicleClass": "submarine"
+  },
+  {
+    "cargoCapacity": 2,
+    "consumables": "unknown",
+    "costInCredits": 4000,
+    "created": "2014-12-20T10:09:56.095Z",
+    "crew": 1,
+    "edited": "2014-12-20T21:30:21.712Z",
+    "length": null,
+    "manufacturer": "Razalon",
+    "model": "FC-20 speeder bike",
+    "name": "Sith speeder",
+    "passengers": 0,
+    "filmIds": [
+      4
+    ],
+    "pilotIds": [
+      44
+    ],
+    "id": 42,
+    "vehicleClass": "speeder"
+  },
+  {
+    "cargoCapacity": 200,
+    "consumables": "none",
+    "costInCredits": 5750,
+    "created": "2014-12-20T16:24:16.026Z",
+    "crew": 1,
+    "edited": "2014-12-20T21:30:21.714Z",
+    "length": null,
+    "manufacturer": "Mobquet Swoops and Speeders",
+    "model": "Zephyr-G swoop bike",
+    "name": "Zephyr-G swoop bike",
+    "passengers": 1,
+    "filmIds": [
+      5
+    ],
+    "pilotIds": [
+      11
+    ],
+    "id": 44,
+    "vehicleClass": "repulsorcraft"
+  },
+  {
+    "cargoCapacity": 80,
+    "consumables": "unknown",
+    "costInCredits": null,
+    "created": "2014-12-20T17:17:33.526Z",
+    "crew": 1,
+    "edited": "2014-12-20T21:30:21.716Z",
+    "length": null,
+    "manufacturer": "Desler Gizh Outworld Mobility Corporation",
+    "model": "Koro-2 Exodrive airspeeder",
+    "name": "Koro-2 Exodrive airspeeder",
+    "passengers": 1,
+    "filmIds": [
+      5
+    ],
+    "pilotIds": [
+      70
+    ],
+    "id": 45,
+    "vehicleClass": "airspeeder"
+  },
+  {
+    "cargoCapacity": null,
+    "consumables": "unknown",
+    "costInCredits": null,
+    "created": "2014-12-20T17:19:19.991Z",
+    "crew": 1,
+    "edited": "2014-12-20T21:30:21.719Z",
+    "length": null,
+    "manufacturer": "Narglatch AirTech prefabricated kit",
+    "model": "XJ-6 airspeeder",
+    "name": "XJ-6 airspeeder",
+    "passengers": 1,
+    "filmIds": [
+      5
+    ],
+    "pilotIds": [
+      11
+    ],
+    "id": 46,
+    "vehicleClass": "airspeeder"
+  },
+  {
+    "cargoCapacity": 170,
+    "consumables": "unknown",
+    "costInCredits": null,
+    "created": "2014-12-20T18:01:21.014Z",
+    "crew": 6,
+    "edited": "2014-12-20T21:30:21.723Z",
+    "length": null,
+    "manufacturer": "Rothana Heavy Engineering",
+    "model": "Low Altitude Assault Transport/infrantry",
+    "name": "LAAT/i",
+    "passengers": 30,
+    "filmIds": [
+      5,
+      6
+    ],
+    "pilotIds": [],
+    "id": 50,
+    "vehicleClass": "gunship"
+  },
+  {
+    "cargoCapacity": 40000,
+    "consumables": "unknown",
+    "costInCredits": null,
+    "created": "2014-12-20T18:02:46.802Z",
+    "crew": 1,
+    "edited": "2014-12-20T21:30:21.725Z",
+    "length": null,
+    "manufacturer": "Rothana Heavy Engineering",
+    "model": "Low Altitude Assault Transport/carrier",
+    "name": "LAAT/c",
+    "passengers": 0,
+    "filmIds": [
+      5
+    ],
+    "pilotIds": [],
+    "id": 51,
+    "vehicleClass": "gunship"
+  },
+  {
+    "cargoCapacity": 10000,
+    "consumables": "21 days",
+    "costInCredits": null,
+    "created": "2014-12-20T18:10:07.56Z",
+    "crew": 6,
+    "edited": "2014-12-20T21:30:21.728Z",
+    "length": null,
+    "manufacturer": "Rothana Heavy Engineering, Kuat Drive Yards",
+    "model": "All Terrain Tactical Enforcer",
+    "name": "AT-TE",
+    "passengers": 36,
+    "filmIds": [
+      5,
+      6
+    ],
+    "pilotIds": [],
+    "id": 53,
+    "vehicleClass": "walker"
+  },
+  {
+    "cargoCapacity": 500,
+    "consumables": "7 days",
+    "costInCredits": null,
+    "created": "2014-12-20T18:12:32.315Z",
+    "crew": 25,
+    "edited": "2014-12-20T21:30:21.731Z",
+    "length": 140,
+    "manufacturer": "Rothana Heavy Engineering",
+    "model": "Self-Propelled Heavy Artillery",
+    "name": "SPHA",
+    "passengers": 30,
+    "filmIds": [
+      5
+    ],
+    "pilotIds": [],
+    "id": 54,
+    "vehicleClass": "walker"
+  },
+  {
+    "cargoCapacity": null,
+    "consumables": "unknown",
+    "costInCredits": 8000,
+    "created": "2014-12-20T18:15:20.312Z",
+    "crew": 1,
+    "edited": "2014-12-20T21:30:21.735Z",
+    "length": 2,
+    "manufacturer": "Huppla Pasa Tisc Shipwrights Collective",
+    "model": "Flitknot speeder",
+    "name": "Flitknot speeder",
+    "passengers": 0,
+    "filmIds": [
+      5
+    ],
+    "pilotIds": [
+      67
+    ],
+    "id": 55,
+    "vehicleClass": "speeder"
+  },
+  {
+    "cargoCapacity": 1000,
+    "consumables": "7 days",
+    "costInCredits": null,
+    "created": "2014-12-20T18:25:44.912Z",
+    "crew": 2,
+    "edited": "2014-12-20T21:30:21.739Z",
+    "length": 20,
+    "manufacturer": "Haor Chall Engineering",
+    "model": "Sheathipede-class transport shuttle",
+    "name": "Neimoidian shuttle",
+    "passengers": 6,
+    "filmIds": [
+      5,
+      6
+    ],
+    "pilotIds": [],
+    "id": 56,
+    "vehicleClass": "transport"
+  },
+  {
+    "cargoCapacity": null,
+    "consumables": "unknown",
+    "costInCredits": null,
+    "created": "2014-12-20T18:34:12.541Z",
+    "crew": 1,
+    "edited": "2014-12-20T21:30:21.742Z",
+    "length": null,
+    "manufacturer": "Huppla Pasa Tisc Shipwrights Collective",
+    "model": "Nantex-class territorial defense",
+    "name": "Geonosian starfighter",
+    "passengers": 0,
+    "filmIds": [
+      5
+    ],
+    "pilotIds": [],
+    "id": 57,
+    "vehicleClass": "starfighter"
+  },
+  {
+    "cargoCapacity": 10,
+    "consumables": "none",
+    "costInCredits": 15000,
+    "created": "2014-12-20T19:43:54.87Z",
+    "crew": 1,
+    "edited": "2014-12-20T21:30:21.745Z",
+    "length": null,
+    "manufacturer": "Z-Gomot Ternbuell Guppat Corporation",
+    "model": "Tsmeu-6 personal wheel bike",
+    "name": "Tsmeu-6 personal wheel bike",
+    "passengers": 1,
+    "filmIds": [
+      6
+    ],
+    "pilotIds": [
+      79
+    ],
+    "id": 60,
+    "vehicleClass": "wheeled walker"
+  },
+  {
+    "cargoCapacity": null,
+    "consumables": "unknown",
+    "costInCredits": null,
+    "created": "2014-12-20T19:50:58.559Z",
+    "crew": 2,
+    "edited": "2014-12-20T21:30:21.749Z",
+    "length": null,
+    "manufacturer": "unknown",
+    "model": "Fire suppression speeder",
+    "name": "Emergency Firespeeder",
+    "passengers": null,
+    "filmIds": [
+      6
+    ],
+    "pilotIds": [],
+    "id": 62,
+    "vehicleClass": "fire suppression ship"
+  },
+  {
+    "cargoCapacity": 0,
+    "consumables": "none",
+    "costInCredits": 20000,
+    "created": "2014-12-20T20:05:19.992Z",
+    "crew": 1,
+    "edited": "2014-12-20T21:30:21.752Z",
+    "length": null,
+    "manufacturer": "Colla Designs, Phlac-Arphocc Automata Industries",
+    "model": "tri-fighter",
+    "name": "Droid tri-fighter",
+    "passengers": 0,
+    "filmIds": [
+      6
+    ],
+    "pilotIds": [],
+    "id": 67,
+    "vehicleClass": "droid starfighter"
+  },
+  {
+    "cargoCapacity": 50,
+    "consumables": "3 days",
+    "costInCredits": 12125,
+    "created": "2014-12-20T20:20:53.931Z",
+    "crew": 2,
+    "edited": "2014-12-20T21:30:21.756Z",
+    "length": null,
+    "manufacturer": "Appazanna Engineering Works",
+    "model": "Oevvaor jet catamaran",
+    "name": "Oevvaor jet catamaran",
+    "passengers": 2,
+    "filmIds": [
+      6
+    ],
+    "pilotIds": [],
+    "id": 69,
+    "vehicleClass": "airspeeder"
+  },
+  {
+    "cargoCapacity": 20,
+    "consumables": "none",
+    "costInCredits": 14750,
+    "created": "2014-12-20T20:21:55.648Z",
+    "crew": 2,
+    "edited": "2014-12-20T21:30:21.759Z",
+    "length": 7,
+    "manufacturer": "Appazanna Engineering Works",
+    "model": "Raddaugh Gnasp fluttercraft",
+    "name": "Raddaugh Gnasp fluttercraft",
+    "passengers": 0,
+    "filmIds": [
+      6
+    ],
+    "pilotIds": [],
+    "id": 70,
+    "vehicleClass": "air speeder"
+  },
+  {
+    "cargoCapacity": 30000,
+    "consumables": "20 days",
+    "costInCredits": 350000,
+    "created": "2014-12-20T20:24:45.587Z",
+    "crew": 20,
+    "edited": "2014-12-20T21:30:21.762Z",
+    "length": null,
+    "manufacturer": "Kuat Drive Yards",
+    "model": "HAVw A6 Juggernaut",
+    "name": "Clone turbo tank",
+    "passengers": 300,
+    "filmIds": [
+      6
+    ],
+    "pilotIds": [],
+    "id": 71,
+    "vehicleClass": "wheeled walker"
+  },
+  {
+    "cargoCapacity": null,
+    "consumables": "none",
+    "costInCredits": 49000,
+    "created": "2014-12-20T20:26:55.522Z",
+    "crew": 0,
+    "edited": "2014-12-20T21:30:21.765Z",
+    "length": null,
+    "manufacturer": "Techno Union",
+    "model": "NR-N99 Persuader-class droid enforcer",
+    "name": "Corporate Alliance tank droid",
+    "passengers": 4,
+    "filmIds": [
+      6
+    ],
+    "pilotIds": [],
+    "id": 72,
+    "vehicleClass": "droid tank"
+  },
+  {
+    "cargoCapacity": 0,
+    "consumables": "none",
+    "costInCredits": 60000,
+    "created": "2014-12-20T20:32:05.687Z",
+    "crew": 0,
+    "edited": "2014-12-20T21:30:21.768Z",
+    "length": null,
+    "manufacturer": "Baktoid Fleet Ordnance, Haor Chall Engineering",
+    "model": "HMP droid gunship",
+    "name": "Droid gunship",
+    "passengers": 0,
+    "filmIds": [
+      6
+    ],
+    "pilotIds": [],
+    "id": 73,
+    "vehicleClass": "airspeeder"
+  },
+  {
+    "cargoCapacity": 20,
+    "consumables": "1 day",
+    "costInCredits": 40000,
+    "created": "2014-12-20T20:47:49.189Z",
+    "crew": 1,
+    "edited": "2014-12-20T21:30:21.772Z",
+    "length": null,
+    "manufacturer": "Kuat Drive Yards",
+    "model": "All Terrain Recon Transport",
+    "name": "AT-RT",
+    "passengers": 0,
+    "filmIds": [
+      6
+    ],
+    "pilotIds": [],
+    "id": 76,
+    "vehicleClass": "walker"
+  }
+]

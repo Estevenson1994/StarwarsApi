@@ -12,5 +12,7 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="DataAccess\" />
+    <Folder Include="DataAccess\starwarsdata\" />
   </ItemGroup>
 </Project>
