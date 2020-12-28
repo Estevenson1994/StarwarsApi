@@ -17,23 +17,18 @@ namespace StarWarsApi.DataAccess
                 serviceProvider.GetRequiredService<DbContextOptions<StarWarsDbContext>>()))
             {
                 context.Database.EnsureCreated();
-                if (context.Films.Any())
+                if (context.Films.Any() || context.Characters.Any())
                 {
                     return;
-                }
-
-                using (StreamReader file = File.OpenText("DataAccess/starwarsdata/films.json"))
-                {
-                    JsonSerializer serializer = new JsonSerializer();
-                    List<Film> films = (List<Film>)serializer.Deserialize(file, typeof(List<Film>));
-
-                    context.Films.AddRange(films);
-                }
+                } 
+		    
                 var films = ReadDataFromJsonFiles<List<Film>>("DataAccess/starwarsdata/films.json");
                 context.Films.AddRange(films);
 
                 var characters = ReadDataFromJsonFiles<List<Character>>("DataAccess/starwarsdata/people.json");
                 context.Characters.AddRange(characters);
+
+
                 context.SaveChangesAsync();
             }
         }
@@ -49,5 +44,6 @@ namespace StarWarsApi.DataAccess
                 
 	        }
 	    }
+
     }
 }
