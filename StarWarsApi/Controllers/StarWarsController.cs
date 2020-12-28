@@ -38,11 +38,7 @@ namespace StarWarsApi.Controllers
                 .Select(f => new FilmModel
                 {
                     Title = f.Title,
-                    Characters = f.Characters.Select(c =>
-                        new CharacterModel
-                        {
-                            Name = c.Character.Name
-                        }).ToList()
+                    Characters = f.Characters.Select(c => c.Character.Name).ToList()
                 })
                 .ToListAsync();
 
