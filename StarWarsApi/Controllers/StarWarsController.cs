@@ -33,19 +33,12 @@ namespace StarWarsApi.Controllers
         public async Task<ActionResult<List<Film>>> GetFilms()
         {
             var films = await _context.Films
+                .Include(f => f.Characters)
+                .ThenInclude(c => c.Character)
                 .ToListAsync();
 
             return Ok(films);
         }
-
-        [HttpGet("Characters")]
-        public async Task<ActionResult<List<Character>>> GetCharacters()
-        {
-            var characters = await _context.Characters
-                .ToListAsync();
-
-            return Ok(characters); 
-	    }
 
         #endregion
 

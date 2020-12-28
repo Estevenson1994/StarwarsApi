@@ -18,6 +18,7 @@ namespace StarWarsApi.DataAccess
        
         public DbSet<Film> Films { get; set; }
         public DbSet<Character> Characters { get; set; }
+        public DbSet<FilmCharacterMapping> FilmCharacterMappings { get; set; }
 
         #endregion
 

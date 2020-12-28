@@ -28,8 +28,26 @@ namespace StarWarsApi.DataAccess
                 var characters = ReadDataFromJsonFiles<List<Character>>("DataAccess/starwarsdata/people.json");
                 context.Characters.AddRange(characters);
 
+                using (StreamReader file = File.OpenText("DataAccess/starwarsdata/films.json"))
+                {
+                    JsonSerializer serializer = new JsonSerializer();
+                    dynamic dynJson = (dynamic)serializer.Deserialize(file, typeof(Object));
+		            
+		            foreach (var film in dynJson)
+                    {
+                        foreach (var characterId in film.characterIds)
+                        { 
+                            context.FilmCharacterMappings.Add(
+                                new FilmCharacterMapping
+                                {
+                                    FilmId = film.id,
+                                    CharacterId = characterId
+                                });
+			            }
+		            } 
+		        }
 
-                context.SaveChangesAsync();
+                    context.SaveChangesAsync();
             }
         }
 
