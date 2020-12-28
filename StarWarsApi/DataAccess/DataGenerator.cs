@@ -29,17 +29,25 @@ namespace StarWarsApi.DataAccess
 
                     context.Films.AddRange(films);
                 }
+                var films = ReadDataFromJsonFiles<List<Film>>("DataAccess/starwarsdata/films.json");
+                context.Films.AddRange(films);
 
-                using(StreamReader file = File.OpenText("DataAccess/starwarsdata/people.json"))
-                {
-                    JsonSerializer serializer = new JsonSerializer();
-                    List<Character> characters = (List<Character>)serializer.Deserialize(file, typeof(List<Character>));
-
-                    context.Characters.AddRange(characters);
-		        }
-
+                var characters = ReadDataFromJsonFiles<List<Character>>("DataAccess/starwarsdata/people.json");
+                context.Characters.AddRange(characters);
                 context.SaveChangesAsync();
             }
         }
+
+        private static T ReadDataFromJsonFiles<T>(string fileName)
+        {
+            using(StreamReader file = File.OpenText(fileName))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                var entities = (T)serializer.Deserialize(file, typeof(T));
+
+                return entities;
+                
+	        }
+	    }
     }
 }
