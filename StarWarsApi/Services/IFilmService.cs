@@ -9,5 +9,6 @@ namespace StarWarsApi.Services
     {
         Task<List<FilmModel>> GetFilms();
         Task<List<CharacterModel>> GetCharacters();
+        Task AddCharacter(CharacterModel character);
     }
 }

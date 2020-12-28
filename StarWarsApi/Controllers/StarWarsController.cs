@@ -44,6 +44,15 @@ namespace StarWarsApi.Controllers
             return Ok(characters);
         }
 
+        [HttpPost("Characters")]
+        public async Task<ActionResult<CharacterModel>> AddCharacter(
+            CharacterModel character)
+        {
+            await _filmService.AddCharacter(character);
+
+            return CreatedAtAction(nameof(GetCharacters), new { id = character.Name }, character);
+        }
+
         #endregion
 
 

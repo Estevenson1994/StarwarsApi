@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using StarWarsApi.DataAccess;
+using StarWarsApi.DataAccess.Entities;
 using StarWarsApi.Models;
 
 namespace StarWarsApi.Services
@@ -46,6 +47,18 @@ namespace StarWarsApi.Services
                     Name = c.Name,
                     BirthYear = c.BirthYear
                 }).ToListAsync();
+        }
+
+        public async Task AddCharacter(CharacterModel character)
+        {
+            var newCharacter = new Character
+            {
+                Name = character.Name,
+                BirthYear = character.BirthYear ?? "unknown"
+            };
+
+            _context.Characters.Add(newCharacter);
+            await _context.SaveChangesAsync();
         }
 
     }
