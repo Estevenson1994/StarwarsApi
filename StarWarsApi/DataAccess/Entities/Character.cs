@@ -7,5 +7,6 @@ namespace StarWarsApi.DataAccess.Entities
         [JsonProperty("id")]
         public int CharacterId { get; set; }
         public string Name { get; set; }
+        public string BirthYear { get; set; }
     }
 }

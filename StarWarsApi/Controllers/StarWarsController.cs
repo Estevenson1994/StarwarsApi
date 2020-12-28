@@ -45,6 +45,19 @@ namespace StarWarsApi.Controllers
             return Ok(films);
         }
 
+        [HttpGet("Characters")]
+        public async Task<ActionResult<List<CharacterModel>>> GetCharacters()
+        {
+            var characters = await _context.Characters
+                .Select(c => new CharacterModel
+                {
+                    Name = c.Name,
+                    BirthYear = c.BirthYear
+                }).ToListAsync();
+
+            return Ok(characters);
+        }
+
         #endregion
 
 
