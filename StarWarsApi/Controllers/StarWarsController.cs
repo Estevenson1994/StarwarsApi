@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using StarWarsApi.DataAccess;
 using StarWarsApi.Models;
+using StarWarsApi.Services;
 
 namespace StarWarsApi.Controllers
 {
@@ -14,15 +12,16 @@ namespace StarWarsApi.Controllers
     {
         #region Private properties
 
-        private readonly StarWarsDbContext _context;
+        private readonly IFilmService _filmService;
 
         #endregion
 
         #region Constructor
 
-        public StarWarsController(StarWarsDbContext context)
+        public StarWarsController(
+            IFilmService filmService)
         {
-            _context = context;
+            _filmService = filmService;
         }
 
         #endregion
@@ -32,15 +31,7 @@ namespace StarWarsApi.Controllers
         [HttpGet("Films")]
         public async Task<ActionResult<List<FilmModel>>> GetFilms()
         {
-            var films = await _context.Films
-                .Include(f => f.Characters)
-                .ThenInclude(c => c.Character)
-                .Select(f => new FilmModel
-                {
-                    Title = f.Title,
-                    Characters = f.Characters.Select(c => c.Character.Name).ToList()
-                })
-                .ToListAsync();
+            var films = await _filmService.GetFilms();
 
             return Ok(films);
         }
@@ -48,12 +39,7 @@ namespace StarWarsApi.Controllers
         [HttpGet("Characters")]
         public async Task<ActionResult<List<CharacterModel>>> GetCharacters()
         {
-            var characters = await _context.Characters
-                .Select(c => new CharacterModel
-                {
-                    Name = c.Name,
-                    BirthYear = c.BirthYear
-                }).ToListAsync();
+            var characters = await _filmService.GetCharacters();
 
             return Ok(characters);
         }

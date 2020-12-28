@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StarWarsApi.Constants;
 using StarWarsApi.DataAccess;
+using StarWarsApi.Services;
 
 namespace StarWarsApi
 {
@@ -27,6 +28,8 @@ namespace StarWarsApi
 
             services.AddDbContext<StarWarsDbContext>(option =>
                 option.UseInMemoryDatabase(StarWarsConstants.StarWarsDbName));
+
+            services.AddScoped<IFilmService, StarWarsService>();
 
         }
 
