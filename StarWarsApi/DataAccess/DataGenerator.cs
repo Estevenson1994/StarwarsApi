@@ -30,6 +30,14 @@ namespace StarWarsApi.DataAccess
                     context.Films.AddRange(films);
                 }
 
+                using(StreamReader file = File.OpenText("DataAccess/starwarsdata/people.json"))
+                {
+                    JsonSerializer serializer = new JsonSerializer();
+                    List<Character> characters = (List<Character>)serializer.Deserialize(file, typeof(List<Character>));
+
+                    context.Characters.AddRange(characters);
+		        }
+
                 context.SaveChangesAsync();
             }
         }
