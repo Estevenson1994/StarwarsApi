@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -34,18 +33,11 @@ namespace StarWarsApi.Services
             int? pageSize,
             string species)
         {
-            Debug.WriteLine(species);
-            var filmsQueryable = _context.Films
-                .Include(f => f.Characters)
-                .ThenInclude(c => c.Character)
-                .Include(f => f.Species)
-                .ThenInclude(s => s.Species)
-                .Select(f => new FilmModel
-                {
-                    Title = f.Title,
-                    Characters = f.Characters.Select(c => c.Character.Name).ToList(),
-                    Species = f.Species.Select(s => s.Species.Name).ToList()
-                });
+            var filmsQueryable = GetFilmsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(species))
+                filmsQueryable = filmsQueryable
+                    .Where(f => f.Species.Contains(species));
 
             return await PaginatedList<FilmModel>.Create(
                 filmsQueryable,
@@ -116,6 +108,22 @@ namespace StarWarsApi.Services
                     });
             }
         }
+
+        private IQueryable<FilmModel> GetFilmsQueryable()
+        {
+            return _context.Films
+                .Include(f => f.Characters)
+                .ThenInclude(c => c.Character)
+                .Include(f => f.Species)
+                .ThenInclude(s => s.Species)
+                .Select(f => new FilmModel
+                {
+                    Title = f.Title,
+                    Characters = f.Characters.Select(c => c.Character.Name).ToList(),
+                    Species = f.Species.Select(s => s.Species.Name).ToList()
+                });
+        }
+
         #endregion
 
     }
