@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices.ComTypes;
+using Microsoft.Extensions.DependencyInjection;
+using StarWarsApi.Services;
 
 namespace StarWarsApi.Models
 {
@@ -21,6 +24,25 @@ namespace StarWarsApi.Models
             {
                 yield return new ValidationResult(
                     $"Character must be in at least one film");
+            }
+
+            var starWarsService = validationContext.GetService<IFilmService>();
+
+            // HACK: Having to run async tasks asynchronously
+
+            if(starWarsService.CharacterExists(Name).Result)
+            {
+                yield return new ValidationResult(
+                    $"Character with name '{Name}' already exists");
+            }
+
+            foreach(var filmTitle in Films)
+            {
+                if (!starWarsService.FilmExists(filmTitle).Result)
+                {
+                    yield return new ValidationResult(
+                        $"Film with title '{filmTitle}' doesn't exist");
+                }
             }
         }
 

@@ -69,6 +69,20 @@ namespace StarWarsApi.Services
             await _context.SaveChangesAsync();
         }
 
+        public async Task<bool> CharacterExists(string name)
+        {
+            return await _context.Characters
+                .Where(c => c.Name == name)
+                .AnyAsync();
+        }
+
+        public async Task<bool> FilmExists(string title)
+        {
+            return await _context.Films
+                .Where(f => f.Title == title)
+                .AnyAsync();
+        }
+
         #endregion
 
         #region Private methods
