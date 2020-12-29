@@ -48,6 +48,11 @@ namespace StarWarsApi.Controllers
         public async Task<ActionResult<CharacterModel>> AddCharacter(
             CharacterModel character)
         {
+            if(!ModelState.IsValid)
+            {
+                return UnprocessableEntity(ModelState);
+            }
+
             await _filmService.AddCharacter(character);
 
             return CreatedAtAction(nameof(GetCharacters), new { id = character.Name }, character);
