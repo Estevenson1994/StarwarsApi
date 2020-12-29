@@ -9,7 +9,8 @@ namespace StarWarsApi.Services
     {
         Task<List<FilmModel>> GetFilms(int? pageNumber,
             int? pageSize,
-            string species);
+            string species,
+            string planet);
         Task<List<CharacterModel>> GetCharacters();
         Task AddCharacter(CharacterModel character);
         Task<bool> CharacterExists(string name);

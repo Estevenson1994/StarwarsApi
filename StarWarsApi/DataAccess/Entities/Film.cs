@@ -10,5 +10,6 @@ namespace StarWarsApi.DataAccess.Entities
         public string Title { get; set; }
         public virtual Collection<FilmCharacterMapping> Characters { get; set; }
         public virtual Collection<FilmSpeciesMapping> Species { get; set; }
+        public virtual Collection<FilmPlanetMapping> Planets { get; set; }
     }
 }

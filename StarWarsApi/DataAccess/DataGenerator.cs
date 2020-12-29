@@ -17,7 +17,10 @@ namespace StarWarsApi.DataAccess
                 serviceProvider.GetRequiredService<DbContextOptions<StarWarsDbContext>>()))
             {
                 context.Database.EnsureCreated();
-                if (context.Films.Any() || context.Characters.Any())
+                if (context.Films.Any()
+                    || context.Characters.Any()
+                    || context.Species.Any()
+                    || context.Planets.Any())
                 {
                     return;
                 } 
@@ -30,6 +33,9 @@ namespace StarWarsApi.DataAccess
 
                 var species = ReadDataFromJsonFiles<List<Species>>("DataAccess/starwarsdata/species.json");
                 context.Species.AddRange(species);
+
+                var planets = ReadDataFromJsonFiles<List<Planet>>("DataAccess/starwarsdata/planets.json");
+                context.Planets.AddRange(planets);
 
                 using (StreamReader file = File.OpenText("DataAccess/starwarsdata/films.json"))
                 {
@@ -54,6 +60,15 @@ namespace StarWarsApi.DataAccess
                                 {
                                     FilmId = film.id,
                                     SpeciesId = speciesId
+                                });
+                        }
+                        foreach (var planetId in film.planetIds)
+                        {
+                            context.FilmPlanetMappings.Add(
+                                new FilmPlanetMapping
+                                {
+                                    FilmId = film.id,
+                                    PlanetId = planetId
                                 });
                         }
 		            } 

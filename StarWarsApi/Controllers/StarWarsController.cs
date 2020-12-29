@@ -33,9 +33,13 @@ namespace StarWarsApi.Controllers
         public async Task<ActionResult<List<FilmModel>>> GetFilms(
             int? pageNumber,
             int? pageSize,
-            string species)
+            string species,
+            string planet)
         {
-            var films = await _filmService.GetFilms(pageNumber, pageSize, species);
+            var films = await _filmService.GetFilms(pageNumber,
+                pageSize,
+                species,
+                planet);
 
             return Ok(films);
         }

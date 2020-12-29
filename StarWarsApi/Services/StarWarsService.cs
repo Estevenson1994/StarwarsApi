@@ -31,13 +31,17 @@ namespace StarWarsApi.Services
         public async Task<List<FilmModel>> GetFilms(
             int? pageNumber,
             int? pageSize,
-            string species)
+            string species,
+            string planet)
         {
             var filmsQueryable = GetFilmsQueryable();
 
             if (!string.IsNullOrWhiteSpace(species))
                 filmsQueryable = filmsQueryable
                     .Where(f => f.Species.Contains(species));
+            if (!string.IsNullOrWhiteSpace(planet))
+                filmsQueryable = filmsQueryable
+                    .Where(f => f.Planets.Contains(planet));
 
             return await PaginatedList<FilmModel>.Create(
                 filmsQueryable,
@@ -116,11 +120,14 @@ namespace StarWarsApi.Services
                 .ThenInclude(c => c.Character)
                 .Include(f => f.Species)
                 .ThenInclude(s => s.Species)
+                .Include(f => f.Planets)
+                .ThenInclude(p => p.Planet)
                 .Select(f => new FilmModel
                 {
                     Title = f.Title,
                     Characters = f.Characters.Select(c => c.Character.Name).ToList(),
-                    Species = f.Species.Select(s => s.Species.Name).ToList()
+                    Species = f.Species.Select(s => s.Species.Name).ToList(),
+                    Planets = f.Planets.Select(p => p.Planet.Name).ToList()
                 });
         }
 
