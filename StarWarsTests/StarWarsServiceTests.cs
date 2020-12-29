@@ -170,5 +170,48 @@ namespace StarWarsTests
 
         #endregion
 
+        #region CanFilterFilmsBySpecies
+        [Fact]
+        public async Task Can_filter_films_by_species()
+        {
+            using (var context = new StarWarsDbContext(ContextOptions))
+            {
+                var service = new StarWarsService(context);
+
+                int? pageNumber = null;
+                int? pageSize = null;
+                string species = "Gungan";
+                string planet = "";
+
+                var films1 = await service.GetFilms(
+                    pageNumber,
+                    pageSize,
+                    species,
+                    planet);
+
+                Assert.Equal(2, films1.Count);
+
+                var filmTitles = films1.Select(f => f.Title).ToList();
+                Assert.Contains("The Phantom Menace", filmTitles);
+                Assert.Contains("Attack of the Clones", filmTitles);
+
+                string species2 = "Twi'lek";
+
+                var films2 = await service.GetFilms(
+                    pageNumber,
+                    pageSize,
+                    species2,
+                    planet);
+
+                Assert.Equal(4, films2.Count);
+
+                var filmTitles2 = films2.Select(f => f.Title).ToList();
+                Assert.Contains("Return of the Jedi", filmTitles2);
+                Assert.Contains("Revenge of the Sith", filmTitles2);
+
+            }
+        }
+
+        #endregion
     }
 }
