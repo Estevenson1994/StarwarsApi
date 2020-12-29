@@ -213,5 +213,51 @@ namespace StarWarsTests
         }
 
         #endregion
+
+        #region CanFilterFilmsByPlanet
+
+        [Fact]
+        public async Task Can_filter_films_by_planet()
+        {
+            using (var context = new StarWarsDbContext(ContextOptions))
+            {
+                var service = new StarWarsService(context);
+
+                int? pageNumber = null;
+                int? pageSize = null;
+                string species = "";
+                string planet = "Alderaan";
+
+                var films1 = await service.GetFilms(
+                    pageNumber,
+                    pageSize,
+                    species,
+                    planet);
+
+                Assert.Equal(2, films1.Count);
+
+                var filmTitles = films1.Select(f => f.Title).ToList();
+                Assert.Contains("A New Hope", filmTitles);
+                Assert.Contains("Revenge of the Sith", filmTitles);
+
+                string planet2 = "Dagobah";
+
+                var films2 = await service.GetFilms(
+                    pageNumber,
+                    pageSize,
+                    species,
+                    planet2);
+
+                Assert.Equal(3, films2.Count);
+
+                var filmTitles2 = films2.Select(f => f.Title).ToList();
+                Assert.Contains("The Empire Strikes Back", filmTitles2);
+                Assert.Contains("Return of the Jedi", filmTitles2);
+                Assert.Contains("Revenge of the Sith", filmTitles2);
+
+            }
+        }
+
+        #endregion
     }
 }
