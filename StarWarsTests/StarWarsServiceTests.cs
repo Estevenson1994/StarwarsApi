@@ -128,5 +128,47 @@ namespace StarWarsTests
 
         //#endregion
 
+        #region CanGetFilmsWithPaging
+        [Fact]
+
+        public async Task Can_get_films_with_paging()
+        {
+            using (var context = new StarWarsDbContext(ContextOptions))
+            {
+                var service = new StarWarsService(context);
+
+                int? pageNumber1 = 1;
+                int? pageSize1 = 4;
+                string species = "";
+                string planet = "";
+
+                var films1 = await service.GetFilms(
+                    pageNumber1,
+                    pageSize1,
+                    species,
+                    planet);
+
+                Assert.Equal(4, films1.Count);
+                Assert.Equal("A New Hope", films1.First().Title);
+                Assert.Equal("The Phantom Menace", films1.Last().Title);
+
+                int? pageNumber2 = 2;
+                int? pageSize2 = 2;
+
+                var films2 = await service.GetFilms(
+                    pageNumber2,
+                    pageSize2,
+                    species,
+                    planet);
+
+                Assert.Equal(2, films2.Count);
+                Assert.Equal("Return of the Jedi", films2.First().Title);
+                Assert.Equal("The Phantom Menace", films1.Last().Title);
+
+            }
+        }
+
+        #endregion
+
     }
 }
