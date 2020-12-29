@@ -42,10 +42,13 @@ namespace StarWarsApi.Services
         public async Task<List<CharacterModel>> GetCharacters()
         {
             return await _context.Characters
+                .Include(c => c.Films)
+                .ThenInclude(f => f.Film)
                 .Select(c => new CharacterModel
                 {
                     Name = c.Name,
-                    BirthYear = c.BirthYear
+                    BirthYear = c.BirthYear,
+                    Films = c.Films.Select(f => f.Film.Title).ToList()
                 }).ToListAsync();
         }
 
@@ -58,6 +61,20 @@ namespace StarWarsApi.Services
             };
 
             _context.Characters.Add(newCharacter);
+
+            foreach (var filmTitle in character.Films)
+            {
+                var film = await _context.Films
+                    .Where(f => f.Title == filmTitle)
+                    .FirstOrDefaultAsync();
+
+                _context.FilmCharacterMappings.Add(
+                    new FilmCharacterMapping
+                    {
+                        Film = film,
+                        Character = newCharacter
+                    });
+            }
             await _context.SaveChangesAsync();
         }
 
