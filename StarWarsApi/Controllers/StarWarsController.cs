@@ -32,9 +32,10 @@ namespace StarWarsApi.Controllers
         [HttpGet("Films/pageNumber/{pageNumber}/pageSize/{pageSize}")]
         public async Task<ActionResult<List<FilmModel>>> GetFilms(
             int? pageNumber,
-            int? pageSize)
+            int? pageSize,
+            string species)
         {
-            var films = await _filmService.GetFilms(pageNumber, pageSize);
+            var films = await _filmService.GetFilms(pageNumber, pageSize, species);
 
             return Ok(films);
         }

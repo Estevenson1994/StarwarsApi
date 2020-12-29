@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -30,15 +31,20 @@ namespace StarWarsApi.Services
 
         public async Task<List<FilmModel>> GetFilms(
             int? pageNumber,
-            int? pageSize)
+            int? pageSize,
+            string species)
         {
+            Debug.WriteLine(species);
             var filmsQueryable = _context.Films
                 .Include(f => f.Characters)
                 .ThenInclude(c => c.Character)
+                .Include(f => f.Species)
+                .ThenInclude(s => s.Species)
                 .Select(f => new FilmModel
                 {
                     Title = f.Title,
-                    Characters = f.Characters.Select(c => c.Character.Name).ToList()
+                    Characters = f.Characters.Select(c => c.Character.Name).ToList(),
+                    Species = f.Species.Select(s => s.Species.Name).ToList()
                 });
 
             return await PaginatedList<FilmModel>.Create(

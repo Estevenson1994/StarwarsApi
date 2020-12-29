@@ -7,7 +7,9 @@ namespace StarWarsApi.Services
 {
     public interface IFilmService
     {
-        Task<List<FilmModel>> GetFilms(int? pageNumber, int? pageSize);
+        Task<List<FilmModel>> GetFilms(int? pageNumber,
+            int? pageSize,
+            string species);
         Task<List<CharacterModel>> GetCharacters();
         Task AddCharacter(CharacterModel character);
         Task<bool> CharacterExists(string name);

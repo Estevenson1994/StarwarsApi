@@ -28,6 +28,9 @@ namespace StarWarsApi.DataAccess
                 var characters = ReadDataFromJsonFiles<List<Character>>("DataAccess/starwarsdata/people.json");
                 context.Characters.AddRange(characters);
 
+                var species = ReadDataFromJsonFiles<List<Species>>("DataAccess/starwarsdata/species.json");
+                context.Species.AddRange(species);
+
                 using (StreamReader file = File.OpenText("DataAccess/starwarsdata/films.json"))
                 {
                     JsonSerializer serializer = new JsonSerializer();
@@ -44,6 +47,15 @@ namespace StarWarsApi.DataAccess
                                     CharacterId = characterId
                                 });
 			            }
+                        foreach (var speciesId in film.speciesIds)
+                        {
+                            context.FilmSpeciesMapping.Add(
+                                new FilmSpeciesMapping
+                                {
+                                    FilmId = film.id,
+                                    SpeciesId = speciesId
+                                });
+                        }
 		            } 
 		        }
 
