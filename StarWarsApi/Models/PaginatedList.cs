@@ -43,14 +43,22 @@ namespace StarWarsApi.Models
         #endregion
 
         #region Methods
-        public static async Task<PaginatedList<T>> Create(IQueryable<T> source, int pageIndex, int pageSize)
+
+        public static async Task<PaginatedList<T>> Create(IQueryable<T> source, int? pageIndex, int? pageSize)
         {
             var totalRecords = await source.CountAsync();
-            var data = await source
-                .Skip((pageIndex - 1) * pageSize)
-                .Take(pageSize)
+            var data = new List<T>();
+            if (pageIndex.HasValue && pageSize.HasValue)
+            {
+                data = await source
+                .Skip(((int)pageIndex - 1) * (int)pageSize)
+                .Take((int)pageSize)
                 .ToListAsync();
-            return new PaginatedList<T>(data, totalRecords, pageIndex, pageSize);
+            } else
+            {
+                data = await source.ToListAsync();
+            }
+            return new PaginatedList<T>(data, totalRecords, pageIndex ?? 1, pageSize ?? totalRecords);
         }
 
         #endregion

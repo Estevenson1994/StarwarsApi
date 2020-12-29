@@ -40,22 +40,11 @@ namespace StarWarsApi.Services
                     Title = f.Title,
                     Characters = f.Characters.Select(c => c.Character.Name).ToList()
                 });
-            if (pageNumber.HasValue && pageSize.HasValue)
-            {
-                return await PaginatedList<FilmModel>.Create(
-                    filmsQueryable,
-                    (int)pageNumber,
-                    (int)pageSize);
 
-            }
-            else
-            {
-                return await PaginatedList<FilmModel>.Create(
-                    filmsQueryable,
-                    1,
-                    filmsQueryable.Count());
-            }
-           
+            return await PaginatedList<FilmModel>.Create(
+                filmsQueryable,
+                pageNumber,
+                pageSize);           
         }
 
         public async Task<List<CharacterModel>> GetCharacters()
