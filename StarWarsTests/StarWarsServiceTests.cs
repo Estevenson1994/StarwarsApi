@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using StarWarsApi.DataAccess;
+using StarWarsApi.Models;
 using StarWarsApi.Services;
 using Xunit;
 
@@ -67,5 +69,51 @@ namespace StarWarsTests
             }
         }
         #endregion
+
+        #region CanGetAllCharacter
+
+        [Fact]
+        public void Can_get_all_characters()
+        {
+            using (var context = new StarWarsDbContext(ContextOptions))
+            {
+                var service = new StarWarsService(context);
+
+                var characters = service.GetCharacters().Result;
+
+                //Character with Id 17 is missing from the json files
+                Assert.Equal(82, characters.Count);
+                Assert.Equal("Luke Skywalker", characters.First().Name);
+                Assert.Equal("Tion Medon", characters.Last().Name);
+            }
+        }
+
+
+        #endregion
+
+        //#region CanAddACharacter
+
+        //[Fact]
+        //public void Can_add_a_character_with_birthyear()
+        //{
+        //    using (var context = new StarWarsDbContext(ContextOptions))
+        //    {
+        //        var service = new StarWarsService(context);
+
+        //        var newCharacter = new CharacterModel
+        //        {
+        //            Name = "Test character",
+        //            BirthYear = "112BBZ",
+        //            Films = new List<string>()
+        //            {
+        //                "A new hope"
+        //            }
+        //        };
+        //    }
+
+        //}
+
+        //#endregion
+
     }
 }
