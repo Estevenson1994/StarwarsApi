@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
@@ -19,6 +18,7 @@ namespace StarWarsApi.DataAccess
             using (var context = new StarWarsDbContext(
                 serviceProvider.GetRequiredService<DbContextOptions<StarWarsDbContext>>()))
             {
+                context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();
 
                 if (CheckEntitiesDontAlreadyExist(context))
@@ -34,23 +34,7 @@ namespace StarWarsApi.DataAccess
             }
         }
 
-        #endregion
-
-        #region Private methods
-
-        private static T ReadDataFromJsonFiles<T>(string fileName)
-        {
-            using (StreamReader file = File.OpenText(fileName))
-            {
-                JsonSerializer serializer = new JsonSerializer();
-                var entities = (T)serializer.Deserialize(file, typeof(T));
-
-                return entities;
-
-            }
-        }
-
-        private static bool CheckEntitiesDontAlreadyExist(StarWarsDbContext context)
+        public static bool CheckEntitiesDontAlreadyExist(StarWarsDbContext context)
         {
             return context.Films.Any()
                     || context.Characters.Any()
@@ -58,7 +42,8 @@ namespace StarWarsApi.DataAccess
                     || context.Planets.Any();
         }
 
-        private static void AddEntities(StarWarsDbContext context)
+
+        public static void AddEntities(StarWarsDbContext context)
         {
             var films = ReadDataFromJsonFiles<List<Film>>("DataAccess/starwarsdata/films.json");
             context.Films.AddRange(films);
@@ -73,9 +58,7 @@ namespace StarWarsApi.DataAccess
             context.Planets.AddRange(planets);
 
         }
-
-
-        private static void AddFilmEntityMappings(StarWarsDbContext context)
+        public static void AddFilmEntityMappings(StarWarsDbContext context)
         {
             using (StreamReader file = File.OpenText("DataAccess/starwarsdata/films.json"))
             {
@@ -114,6 +97,23 @@ namespace StarWarsApi.DataAccess
                 }
             }
         }
+
+        #endregion
+
+        #region Private methods
+
+        private static T ReadDataFromJsonFiles<T>(string fileName)
+        {
+            using (StreamReader file = File.OpenText(fileName))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                var entities = (T)serializer.Deserialize(file, typeof(T));
+
+                return entities;
+
+            }
+        }
+
         #endregion
     }
 }
