@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using StarWarsApi.DataAccess;
-using StarWarsApi.Models;
 using StarWarsApi.Services;
 using Xunit;
 
@@ -44,7 +42,7 @@ namespace StarWarsTests
         #region CanGetAllFilmsWithCharacters
 
         [Fact]
-        public void Can_get_all_films_with_character()
+        public async Task Can_get_all_films_with_character()
         {
             using (var context = new StarWarsDbContext(ContextOptions))
             {
@@ -55,11 +53,11 @@ namespace StarWarsTests
                 string species = "";
                 string planet = "";
 
-                var films = service.GetFilms(
+                var films = await service.GetFilms(
                     pageNumber,
                     pageSize,
                     species,
-                    planet).Result;
+                    planet);
 
                 Assert.Equal(6, films.Count);
                 Assert.Equal("A New Hope", films.First().Title);
@@ -73,13 +71,13 @@ namespace StarWarsTests
         #region CanGetAllCharacter
 
         [Fact]
-        public void Can_get_all_characters()
+        public async Task Can_get_all_characters()
         {
             using (var context = new StarWarsDbContext(ContextOptions))
             {
                 var service = new StarWarsService(context);
 
-                var characters = service.GetCharacters().Result;
+                var characters = await service.GetCharacters();
 
                 //Character with Id 17 is missing from the json files
                 Assert.Equal(82, characters.Count);
@@ -91,10 +89,13 @@ namespace StarWarsTests
 
         #endregion
 
+        //I have tried to test adding a new character, however I cannot figure out the best way to test this,
+        //every time I have tried the below method, my test fails even though it works with manual testing.
+
         //#region CanAddACharacter
 
         //[Fact]
-        //public void Can_add_a_character_with_birthyear()
+        //public async Task Can_add_a_character_with_birthyear()
         //{
         //    using (var context = new StarWarsDbContext(ContextOptions))
         //    {
@@ -109,6 +110,18 @@ namespace StarWarsTests
         //                "A new hope"
         //            }
         //        };
+
+        //        var characters = await service.GetCharacters();
+        //        var characterNames = characters.Select(c => c.Name).ToList();
+
+        //        Assert.DoesNotContain(newCharacter.Name, characterNames);
+
+        //        var newCharacters = await service.AddCharacter(newCharacter);
+        //        var newCharacterNames = characters.Select(c => c.Name).ToList();
+        //        Assert.Equal(83, newCharacterNames.Count);
+
+        //        Assert.Contains(newCharacter.Name, newCharacterNames);
+
         //    }
 
         //}
