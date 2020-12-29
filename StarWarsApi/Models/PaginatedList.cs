@@ -44,6 +44,14 @@ namespace StarWarsApi.Models
 
         #region Methods
 
+        /// <summary>
+        /// Async method to return a list of values only containing in the requested page, of a given page lenght
+        /// </summary>
+        /// <param name="source">The data source which requires paginations</param>
+        /// <param name="pageIndex">The page nunber for which the data is required</param>
+        /// <param name="pageSize">The number of results for each page</param>
+        /// <returns>List of required object</returns>
+
         public static async Task<PaginatedList<T>> Create(IQueryable<T> source, int? pageIndex, int? pageSize)
         {
             var totalRecords = await source.CountAsync();
