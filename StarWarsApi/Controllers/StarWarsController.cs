@@ -29,9 +29,12 @@ namespace StarWarsApi.Controllers
         #region StarWarsController
 
         [HttpGet("Films")]
-        public async Task<ActionResult<List<FilmModel>>> GetFilms()
+        [HttpGet("Films/pageNumber/{pageNumber}/pageSize/{pageSize}")]
+        public async Task<ActionResult<List<FilmModel>>> GetFilms(
+            int? pageNumber,
+            int? pageSize)
         {
-            var films = await _filmService.GetFilms();
+            var films = await _filmService.GetFilms(pageNumber, pageSize);
 
             return Ok(films);
         }

@@ -28,17 +28,34 @@ namespace StarWarsApi.Services
 
         #region StarWarsService
 
-        public async Task<List<FilmModel>> GetFilms()
+        public async Task<List<FilmModel>> GetFilms(
+            int? pageNumber,
+            int? pageSize)
         {
-            return await _context.Films
+            var filmsQueryable = _context.Films
                 .Include(f => f.Characters)
                 .ThenInclude(c => c.Character)
                 .Select(f => new FilmModel
                 {
                     Title = f.Title,
                     Characters = f.Characters.Select(c => c.Character.Name).ToList()
-                })
-                .ToListAsync();
+                });
+            if (pageNumber.HasValue && pageSize.HasValue)
+            {
+                return await PaginatedList<FilmModel>.Create(
+                    filmsQueryable,
+                    (int)pageNumber,
+                    (int)pageSize);
+
+            }
+            else
+            {
+                return await PaginatedList<FilmModel>.Create(
+                    filmsQueryable,
+                    1,
+                    filmsQueryable.Count());
+            }
+           
         }
 
         public async Task<List<CharacterModel>> GetCharacters()
