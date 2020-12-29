@@ -26,6 +26,8 @@ namespace StarWarsApi.Services
 
         #endregion
 
+        #region StarWarsService
+
         public async Task<List<FilmModel>> GetFilms()
         {
             return await _context.Films
@@ -62,6 +64,18 @@ namespace StarWarsApi.Services
 
             _context.Characters.Add(newCharacter);
 
+            await AddFilmCharacterMapping(character, newCharacter);
+
+            await _context.SaveChangesAsync();
+        }
+
+        #endregion
+
+        #region Private methods
+
+        private async Task AddFilmCharacterMapping(
+            CharacterModel character, Character newCharacter)
+        {
             foreach (var filmTitle in character.Films)
             {
                 var film = await _context.Films
@@ -75,8 +89,8 @@ namespace StarWarsApi.Services
                         Character = newCharacter
                     });
             }
-            await _context.SaveChangesAsync();
         }
+        #endregion
 
     }
 }
