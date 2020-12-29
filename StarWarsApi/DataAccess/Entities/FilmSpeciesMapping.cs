@@ -1,5 +1,4 @@
-﻿using System;
-namespace StarWarsApi.DataAccess.Entities
+﻿namespace StarWarsApi.DataAccess.Entities
 {
     public class FilmSpeciesMapping
     {
