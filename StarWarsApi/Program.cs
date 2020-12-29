@@ -22,7 +22,7 @@ namespace StarWarsApi
                 var services = scope.ServiceProvider;
                 var context = services.GetRequiredService<StarWarsDbContext>();
 
-                DataGenerator.Initialize(services);
+                DataGenerator.Initialise(services);
             }
             host.Run();
         }
