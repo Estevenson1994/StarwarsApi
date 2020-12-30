@@ -27,6 +27,7 @@ namespace StarWarsApi.DataAccess
                 }
 
                 AddEntities(context);
+                AddCharacterEntities(context);
 
                 AddFilmEntityMappings(context);
 
@@ -47,9 +48,6 @@ namespace StarWarsApi.DataAccess
         {
             var films = ReadDataFromJsonFiles<List<Film>>("DataAccess/starwarsdata/films.json");
             context.Films.AddRange(films);
-
-            var characters = ReadDataFromJsonFiles<List<Character>>("DataAccess/starwarsdata/people.json");
-            context.Characters.AddRange(characters);
 
             var species = ReadDataFromJsonFiles<List<Species>>("DataAccess/starwarsdata/species.json");
             context.Species.AddRange(species);
@@ -92,6 +90,27 @@ namespace StarWarsApi.DataAccess
                             {
                                 FilmId = film.id,
                                 PlanetId = planetId
+                            });
+                    }
+                }
+            }
+        }
+
+        public static void AddCharacterEntities(StarWarsDbContext context)
+        {
+            using (StreamReader file = File.OpenText("DataAccess/starwarsdata/people.json"))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                dynamic dynJson = (dynamic)serializer.Deserialize(file, typeof(Object));
+                {
+                    foreach (var character in dynJson)
+                    {
+                        context.Characters.Add(
+                            new Character
+                            {
+                                Name = character.name,
+                                BirthYear = character.birthYear,
+                                SpeciesId = character.speciesIds.Count > 0 ? character.speciesIds[0] : null
                             });
                     }
                 }

@@ -12,6 +12,7 @@ namespace StarWarsApi.Models
         public string Name { get; set; }
         public string BirthYear { get; set; }
         public List<string> Films { get; set; }
+        public string Species { get; set; }
 
         #endregion
 

@@ -29,6 +29,7 @@ namespace StarWarsTests
 
                 DataGenerator.CheckEntitiesDontAlreadyExist(context);
                 DataGenerator.AddEntities(context);
+                DataGenerator.AddCharacterEntities(context);
                 DataGenerator.AddFilmEntityMappings(context);
 
                 context.SaveChanges();
@@ -83,6 +84,7 @@ namespace StarWarsTests
                 Assert.Equal(82, characters.Count);
                 Assert.Equal("Luke Skywalker", characters.First().Name);
                 Assert.Equal("Tion Medon", characters.Last().Name);
+                Assert.Equal("Pau'an", characters.Last().Species);
             }
         }
 
@@ -116,7 +118,7 @@ namespace StarWarsTests
 
         //        Assert.DoesNotContain(newCharacter.Name, characterNames);
 
-        //        var newCharacters = await service.AddCharacter(newCharacter);
+        //        await service.AddCharacter(newCharacter);
         //        var newCharacterNames = characters.Select(c => c.Name).ToList();
         //        Assert.Equal(83, newCharacterNames.Count);
 

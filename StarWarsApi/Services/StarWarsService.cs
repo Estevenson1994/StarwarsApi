@@ -54,11 +54,13 @@ namespace StarWarsApi.Services
             return await _context.Characters
                 .Include(c => c.Films)
                 .ThenInclude(f => f.Film)
+                .Include(c => c.Species)
                 .Select(c => new CharacterModel
                 {
                     Name = c.Name,
                     BirthYear = c.BirthYear,
-                    Films = c.Films.Select(f => f.Film.Title).ToList()
+                    Films = c.Films.Select(f => f.Film.Title).ToList(),
+                    Species = c.Species.Name
                 }).ToListAsync();
         }
 
