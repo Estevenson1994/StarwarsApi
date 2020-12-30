@@ -80,8 +80,8 @@ namespace StarWarsTests
 
                 var characters = await service.GetCharacters();
 
-                //Added dummy character with id of 17
-                Assert.Equal(83, characters.Count);
+                //Character with Id of 17 is missing
+                Assert.Equal(82, characters.Count);
                 Assert.Equal("Luke Skywalker", characters.First().Name);
                 Assert.Equal("Tion Medon", characters.Last().Name);
                 Assert.Equal("Pau'an", characters.Last().Species);

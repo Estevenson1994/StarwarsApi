@@ -107,10 +107,11 @@ namespace StarWarsApi.DataAccess
                     {
                         context.Characters.Add(
                             new Character
-                            {
+                            {                              
                                 Name = character.name,
                                 BirthYear = character.birthYear,
-                                SpeciesId = character.speciesIds.Count > 0 ? character.speciesIds[0] : null
+                                SpeciesId = character.speciesIds.Count > 0 ? character.speciesIds[0] : null,
+                                CharacterId = character.id
                             });
                     }
                 }
