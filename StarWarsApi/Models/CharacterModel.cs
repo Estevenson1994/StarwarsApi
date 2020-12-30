@@ -44,6 +44,13 @@ namespace StarWarsApi.Models
                         $"Film with title '{filmTitle}' doesn't exist");
                 }
             }
+
+            if(!starWarsService.SpeciesExists(Species).Result)
+            {
+                yield return new ValidationResult(
+                    $"Species with name '{Species}' doesn't exist'");
+            }
+
         }
 
         #endregion

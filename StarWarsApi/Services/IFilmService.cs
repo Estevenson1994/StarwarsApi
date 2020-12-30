@@ -14,5 +14,6 @@ namespace StarWarsApi.Services
         Task AddCharacter(CharacterModel character);
         Task<bool> CharacterExists(string name);
         Task<bool> FilmExists(string title);
+        Task<bool> SpeciesExists(string name);
     }
 }

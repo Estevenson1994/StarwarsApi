@@ -66,10 +66,15 @@ namespace StarWarsApi.Services
 
         public async Task AddCharacter(CharacterModel character)
         {
+            var species = await _context.Species
+                .Where(s => s.Name == character.Species)
+                .FirstOrDefaultAsync();
+
             var newCharacter = new Character
             {
                 Name = character.Name,
-                BirthYear = character.BirthYear ?? "unknown"
+                BirthYear = character.BirthYear ?? "unknown",
+                Species = species
             };
 
             _context.Characters.Add(newCharacter);
@@ -92,6 +97,14 @@ namespace StarWarsApi.Services
                 .Where(f => f.Title == title)
                 .AnyAsync();
         }
+
+        public async Task<bool> SpeciesExists(string name)
+        {
+            return await _context.Species
+                .Where(s => s.Name == name)
+                .AnyAsync();
+        }
+
 
         #endregion
 
